@@ -19,7 +19,7 @@ const Header = () => {
           <Nav.Link className="text-white" href="/category">
             Category
           </Nav.Link>
-          <Nav.Link className="text-white" to="/logout">
+          <Nav.Link className="text-white" href="/logout">
             Logout
           </Nav.Link>
         </Nav>

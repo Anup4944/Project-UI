@@ -6,6 +6,7 @@ import Category from "./pages/category/Category";
 import Footer from "./components/partials/Footer";
 // import DefaultLayout from "./components/layout/DefaultLayout";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import PasswordReset from "./pages/password-reset/PasswordReset";
 // import Route from "./components/private-route/PrivateRoute";
 // import { Provider } from "react-redux";
 
@@ -20,6 +21,9 @@ function App() {
             </Route>
             <Route path="/category">
               <Category />
+            </Route>
+            <Route path="/reset-password">
+              <PasswordReset />
             </Route>
 
             <Route path="/">

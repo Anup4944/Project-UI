@@ -1,30 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
-import "./LoginForm.css";
+import "./PasswordResetForm.css";
 
-const initialState = {
-  email: "",
-  password: "",
-};
-export const LoginForm = () => {
-  const [login, setLogin] = useState(initialState);
+export const PasswordResetForm = () => {
+  const [email, setEmail] = useState("");
 
   const handleOnChange = (e) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
 
-    setLogin({
-      ...login,
-      [name]: value,
+    setEmail({
+      ...email,
+      [email]: value,
     });
   };
   const hanndleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(login);
+    console.log(email);
   };
 
   return (
     <section className="container">
-      <div className="login-form">
+      <div className="password-form">
         <Form onSubmit={hanndleOnSubmit} className="form-main">
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -33,28 +29,17 @@ export const LoginForm = () => {
               type="email"
               placeholder="Enter email"
               onChange={handleOnChange}
-              value={login.email}
+              value={email}
               required
             />
           </Form.Group>
           <br />
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              name="password"
-              type="password"
-              placeholder="Password"
-              value={login.password}
-              onChange={handleOnChange}
-              required
-            />
-          </Form.Group>
           <br />
           <Button variant="danger" type="submit">
             Submit
           </Button>
-          <a href="/reset-password">Forgot Password</a>
+          <a href="/">Login Now</a>
           <br />
         </Form>
       </div>
@@ -62,4 +47,4 @@ export const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default PasswordResetForm;
