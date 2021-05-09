@@ -1,9 +1,13 @@
 import "./App.css";
+import React from "react";
 import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Category from "./pages/category/Category";
 import Footer from "./components/partials/Footer";
+// import DefaultLayout from "./components/layout/DefaultLayout";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import Route from "./components/private-route/PrivateRoute";
+// import { Provider } from "react-redux";
 
 function App() {
   return (
@@ -11,7 +15,7 @@ function App() {
       <div className="content-wrap">
         <Router>
           <Switch>
-            <Route path="/dashboard">
+            <Route exact path="/dashboard">
               <Dashboard />
             </Route>
             <Route path="/category">
@@ -20,6 +24,10 @@ function App() {
 
             <Route path="/">
               <Login />
+            </Route>
+
+            <Route path="*">
+              <h1>404 Page not found</h1>
             </Route>
           </Switch>
         </Router>
