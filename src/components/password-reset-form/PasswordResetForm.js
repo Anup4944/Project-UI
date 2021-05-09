@@ -13,6 +13,7 @@ export const PasswordResetForm = () => {
       [email]: value,
     });
   };
+
   const hanndleOnSubmit = (e) => {
     e.preventDefault();
     console.log(email);
@@ -27,7 +28,7 @@ export const PasswordResetForm = () => {
             <Form.Control
               name="email"
               type="email"
-              placeholder="Enter email"
+              placeholder="Reset email"
               onChange={handleOnChange}
               value={email}
               required
