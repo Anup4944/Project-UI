@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import "./LoginForm.css";
 
 const initialState = {
@@ -7,6 +8,7 @@ const initialState = {
   password: "",
 };
 export const LoginForm = () => {
+  const history = useHistory();
   const [login, setLogin] = useState(initialState);
 
   const handleOnChange = (e) => {
@@ -20,6 +22,7 @@ export const LoginForm = () => {
   const hanndleOnSubmit = (e) => {
     e.preventDefault();
     console.log(login);
+    history.push("/dashboard");
   };
 
   return (

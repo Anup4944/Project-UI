@@ -6,12 +6,12 @@ import "./Header.css";
 const Header = () => {
   return (
     <div className="main-nav">
-      <Navbar bg="dark" expand="lg">
-        <Navbar.Brand className="text-white" to="/home">
+      <Navbar className="nav" bg="dark">
+        <Navbar.Brand className="text-white " to="/home">
           E-Commerce
         </Navbar.Brand>
 
-        <Nav className="ml-auto">
+        <Nav className=" mr-auto">
           <Nav.Link className="text-white" href="dashboard">
             Dashboard
           </Nav.Link>

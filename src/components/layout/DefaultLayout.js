@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../partials/Footer";
+import { Jumbotron, Jumbrotron } from "react-bootstrap";
 import Header from "../partials/Header";
 
 import "./DefaultLayout.css";
@@ -8,8 +8,7 @@ const DefaultLayout = ({ children }) => {
   return (
     <div className="dlayout">
       <Header />
-
-      {children}
+      <Jumbotron>{children}</Jumbotron>
     </div>
   );
 };

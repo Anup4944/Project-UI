@@ -1,11 +1,15 @@
 import React from "react";
+import AddCategoryForm from "../../components/add-category-form/AddCategoryForm";
 import DefaultLayout from "../../components/layout/DefaultLayout";
-import Header from "../../components/partials/Header";
 
 const Category = () => {
   return (
     <div className="dash" id="dashboard">
-      <DefaultLayout>hey its cat page</DefaultLayout>
+      <DefaultLayout>
+        <AddCategoryForm />
+        <br />
+        <div className="display-cat"></div>
+      </DefaultLayout>
     </div>
   );
 };
