@@ -59,6 +59,8 @@ export const LoginForm = () => {
           </Button>
           <a href="/reset-password">Forgot Password</a>
           <br />
+
+          <a href="/create-user"> New here? Create account</a>
         </Form>
       </div>
     </section>
