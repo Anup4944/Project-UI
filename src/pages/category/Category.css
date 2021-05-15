@@ -1,0 +1,5 @@
+.display-cat {
+  width: 60rem;
+  display: flex;
+  justify-content: center;
+}
