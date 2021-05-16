@@ -3,7 +3,7 @@ import { ListGroup } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const ListCategory = () => {
-  return <div> </div>;
+  return <div> List of categories</div>;
 };
 
 export default ListCategory;

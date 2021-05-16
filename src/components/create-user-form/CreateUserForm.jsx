@@ -60,7 +60,7 @@ const CreateUserForm = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     console.log(user);
-    // history.push("/");
+    history.push("/");
   };
 
   return (
@@ -119,7 +119,7 @@ const CreateUserForm = () => {
             />
             <br />
             <Form.Text>
-              {!passwordError.confirmpassword && (
+              {passwordError.confirmpassword && (
                 <div className="text-danger mb-3">Password doesnt match </div>
               )}{" "}
             </Form.Text>
@@ -166,7 +166,7 @@ const CreateUserForm = () => {
             <Button
               variant="primary"
               type="submit"
-              disabled={Object.values(passwordError).includes(false)}
+              // disabled={Object.values(passwordError).includes(true)}
             >
               Submit
             </Button>

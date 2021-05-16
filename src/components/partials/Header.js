@@ -16,8 +16,17 @@ const Header = () => {
             Dashboard
           </Nav.Link>
 
+          <Nav.Link className="text-white" href="/product">
+            Product
+          </Nav.Link>
           <Nav.Link className="text-white" href="/category">
-            Category
+            Category List
+          </Nav.Link>
+          <Nav.Link className="text-white" href="/phistory">
+            Purchase History
+          </Nav.Link>
+          <Nav.Link className="text-white" href="/checkout">
+            Checkout
           </Nav.Link>
           <Nav.Link className="text-white" href="/logout">
             Logout

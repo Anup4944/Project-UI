@@ -1,0 +1,9 @@
+.img1 {
+  height: 10rem;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

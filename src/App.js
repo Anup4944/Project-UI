@@ -2,14 +2,16 @@ import "./App.css";
 import React from "react";
 import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
-import Category from "./pages/category/Category";
+
 import Footer from "./components/partials/Footer";
-// import DefaultLayout from "./components/layout/DefaultLayout";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PasswordReset from "./pages/password-reset/PasswordReset";
 import CreateUser from "./pages/create-user/CreateUser";
-// import Route from "./components/private-route/PrivateRoute";
-// import { Provider } from "react-redux";
+import Product from "./pages/product/Product";
+import PurchaseHistory from "./pages/purchase-history/PurchaseHistory";
+import CheckOutPage from "./pages/check-out-page/CheckOutPage";
+import Category from "./pages/category/Category";
 
 function App() {
   return (
@@ -20,8 +22,19 @@ function App() {
             <Route exact path="/dashboard">
               <Dashboard />
             </Route>
+            <Route path="/product">
+              <Product />
+            </Route>
+            <Route path="/phistory">
+              <PurchaseHistory />
+            </Route>
+
             <Route path="/category">
               <Category />
+            </Route>
+
+            <Route path="/checkout">
+              <CheckOutPage />
             </Route>
             <Route path="/reset-password">
               <PasswordReset />
