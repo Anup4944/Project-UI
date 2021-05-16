@@ -1,13 +1,13 @@
 import axios from "axios";
 
 const rootUrl = "http://localhost:5001/api/v1/";
-const prodApi = rootUrl + "product";
+const logApi = rootUrl + "login";
 
-export const getProductsAPI = () => {
+export const getLoginAPI = () => {
   return new Promise(async (resolve, reject) => {
     try {
-      const { data } = await axios.get(prodApi);
-
+      const { data } = await axios.get(logAPI);
+      console.log(data);
       resolve(data);
     } catch (error) {
       reject(error);

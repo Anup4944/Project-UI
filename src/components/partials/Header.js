@@ -26,7 +26,7 @@ const Header = () => {
             Purchase History
           </Nav.Link>
           <Nav.Link className="text-white" href="/checkout">
-            Checkout
+            CheckOut
           </Nav.Link>
           <Nav.Link className="text-white" href="/logout">
             Logout
