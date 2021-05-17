@@ -6,7 +6,7 @@ export const getLogin  = async (dispatch) => {
     try {
         dispatch(loginPending());
         const result = await getLoginAPI();
-        disp
+        
 
     } catch (error) {
         const err = {
