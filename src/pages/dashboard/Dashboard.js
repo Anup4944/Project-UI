@@ -10,6 +10,7 @@ const Dashboard = () => {
 
   const { isLoading, productList } = useSelector((state) => state.product);
 
+
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);

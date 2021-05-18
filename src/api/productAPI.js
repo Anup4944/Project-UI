@@ -6,6 +6,7 @@ const prodApi = rootUrl + "product";
 export const getProductsAPI = () => {
   return new Promise(async (resolve, reject) => {
     try {
+      console.log("from here")
       const { data } = await axios.get(prodApi);
 
       resolve(data);
