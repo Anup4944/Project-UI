@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Spinner, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "./LoginForm.css";
@@ -15,6 +15,15 @@ export const LoginForm = () => {
   const { isLoading, loginResponse } = useSelector((state) => state.login);
 
   const [login, setLogin] = useState(initialState);
+
+  const token= sessionStorage.getItem("accessJWT");
+  console.log(token);
+
+  useEffect(() => {
+    
+    token && history.push("/login")
+  }, [loginResponse])
+ 
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -34,8 +43,8 @@ export const LoginForm = () => {
 
     dispatch(getLogin(login));
 
-    console.log(login);
-    // history.push("/dashboard");
+    
+   
   };
 
   return (

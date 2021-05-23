@@ -12,6 +12,7 @@ import Product from "./pages/product/Product";
 import PurchaseHistory from "./pages/purchase-history/PurchaseHistory";
 import CheckOutPage from "./pages/check-out-page/CheckOutPage";
 import Category from "./pages/category/Category";
+import { PrivateRoute } from "./components/private-route/PrivateRoute";
 
 function App() {
   return (
@@ -19,19 +20,17 @@ function App() {
       <div className="content-wrap">
         <Router>
           <Switch>
-            <Route exact path="/dashboard">
-              <Dashboard />
+            <Route exact path="/login">
+              <Login />
             </Route>
             <Route path="/product">
               <Product />
-            </Route>
-            <Route path="/phistory">
-              <PurchaseHistory />
             </Route>
 
             <Route path="/category">
               <Category />
             </Route>
+            {/* <PrivateRoute exac></PrivateRoute> */}
 
             <Route path="/checkout">
               <CheckOutPage />
@@ -43,8 +42,12 @@ function App() {
               <CreateUser />
             </Route>
 
+            <Route path="/create-user">
+              <CreateUser />
+            </Route>
+
             <Route path="/">
-              <Login />
+              <Dashboard />
             </Route>
 
             <Route path="*">
