@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoading: false,
-  isAuth: false,
-  error: "",
+  loginResponse: {},
+ 
 };
 
 const loginSlice = createSlice({
@@ -14,14 +14,14 @@ const loginSlice = createSlice({
       state.isLoading = true;
     },
 
-    loginSuccess: (state) => {
+    loginSuccess: (state ,{payload}) => {
       state.isLoading = false;
-      state.isAuth = true;
-      state.error = "";
+      state.loginResponse = payload || {};
+      
     },
     loginFail: (state, { payload }) => {
       state.isLoading = false;
-      state.error = payload;
+      state.loginResponse = payload || {};
     },
   },
 });

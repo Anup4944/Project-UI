@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Spinner, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "./LoginForm.css";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getLogin } from "../../pages/login/LoginAction";
 
 const initialState = {
   email: "",
@@ -10,6 +11,9 @@ const initialState = {
 };
 export const LoginForm = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { isLoading, loginResponse } = useSelector((state) => state.login);
+
   const [login, setLogin] = useState(initialState);
 
   const handleOnChange = (e) => {
@@ -20,16 +24,35 @@ export const LoginForm = () => {
       [name]: value,
     });
   };
+
   const hanndleOnSubmit = (e) => {
     e.preventDefault();
+
+    if (!login.email || !login.password) {
+      alert("Please fill up all the given fields");
+    }
+
+    dispatch(getLogin(login));
+
     console.log(login);
-    history.push("/dashboard");
+    // history.push("/dashboard");
   };
 
   return (
     <section className="container">
       <div className="login-form">
         <Form onSubmit={hanndleOnSubmit} className="form-main">
+          {isLoading && <Spinner variant="primary" animation="border" />}
+          {loginResponse?.message && (
+            <Alert
+              variant={
+                loginResponse?.status === "success" ? "success" : "danger"
+              }
+            >
+              {" "}
+              {loginResponse?.message}{" "}
+            </Alert>
+          )}
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
