@@ -23,7 +23,7 @@ const Header = () => {
             />
           </Form>
           <Nav.Link className="text-white" href="/category">
-            Category
+            Shop by Category
           </Nav.Link>
 
           <Nav.Link className="text-white" href="/checkout">

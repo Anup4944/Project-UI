@@ -17,10 +17,14 @@ const Dashboard = () => {
   return (
     <div>
       <DefaultLayout>
+      <h1 className="deal" >Todays deal</h1>
         {productList?.map((item, i) => {
           return (
+         
             <div className="container">
+               
               <br />
+              
               Product Name : {item.name} <br />
               Product Price : {item.price} <br />
               Product Sale End Date : {item.saleEndDate} <br />
