@@ -17,7 +17,7 @@ export const LoginForm = () => {
   const [login, setLogin] = useState(initialState);
 
   const token= sessionStorage.getItem("accessJWT");
-  console.log(token);
+ 
 
   useEffect(() => {
     

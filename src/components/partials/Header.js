@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <Card>
       <Navbar className="nav mr-auto" bg="dark" variant="light" expand="lg">
-        <Navbar.Brand className="text-white">E-Commerce</Navbar.Brand>
+        <Navbar.Brand className="text-white ">E-Commerce</Navbar.Brand>
         <Nav className="ml-auto">
           <Nav.Link className="text-white" href="dashboard">
             Home
@@ -25,14 +25,16 @@ const Header = () => {
           <Nav.Link className="text-white" href="/category">
             Category
           </Nav.Link>
-          <Nav.Link className="text-white" href="/login">
-            SignIn / SignUp
-          </Nav.Link>
+
           <Nav.Link className="text-white" href="/checkout">
             <FaCartPlus />
           </Nav.Link>
-          <Nav.Link className="text-white mr-sm-2" href="/logout">
+          {/* <Nav.Link className="text-white mr-sm-2" href="/logout">
             Logout
+          </Nav.Link> */}
+
+          <Nav.Link className="text-white" href="/login">
+            SignIn / SignUp
           </Nav.Link>
         </Nav>
       </Navbar>
