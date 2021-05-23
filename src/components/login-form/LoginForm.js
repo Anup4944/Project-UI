@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getLogin } from "../../pages/login/LoginAction";
 
 const initialState = {
-  email: "",
-  password: "",
+  email: "cat@gmail",
+  password: "ab1234",
 };
 export const LoginForm = () => {
   const history = useHistory();
@@ -29,7 +29,7 @@ export const LoginForm = () => {
     e.preventDefault();
 
     if (!login.email || !login.password) {
-      alert("Please fill up all the given fields");
+      return alert("Please fill up all the given fields");
     }
 
     dispatch(getLogin(login));

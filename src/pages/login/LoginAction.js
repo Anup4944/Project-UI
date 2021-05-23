@@ -6,10 +6,15 @@ export const getLogin  =  frmDt =>async dispatch => {
     try {
         dispatch(loginPending());
         const result = await getLoginAPI(frmDt); // this will return status,msg an tokens
+        console.log(result)
+        const {accessJWT, refreshJWT} = result;
+        accessJWT && sessionStorage.setItem("accessJWT", accessJWT)
+        refreshJWT && localStorage.setItem("ourEcmRJWT", refreshJWT)
+
 
         // if we get tokens from server, we need to store in browser storage. 
 
-        
+
         dispatch(loginSuccess(result))
         
 
