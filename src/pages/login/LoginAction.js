@@ -19,3 +19,18 @@ export const getLogin = (frmDt) => async (dispatch) => {
     };
   }
 };
+
+
+export const logOut = () => dispatch => {
+  
+    //first clear browser storage
+    sessionStorage.removeItem("accessJWT")
+    localStorage.removeItem("ourEcmRJWT")
+
+    // remove tokens from servers
+
+
+
+  }
+
+

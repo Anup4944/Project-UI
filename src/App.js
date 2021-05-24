@@ -20,7 +20,6 @@ function App() {
       <div className="content-wrap">
         <Router>
           <Switch>
-
             <Route exact path="/login">
               <Login />
             </Route>
@@ -40,7 +39,7 @@ function App() {
             <PrivateRoute path="/checkout">
               <CheckOutPage />
             </PrivateRoute>
-            
+
             <Route path="/reset-password">
               <PasswordReset />
             </Route>

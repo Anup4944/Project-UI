@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar, Nav, Form, Card } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
-
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { logOut } from "../../pages/login/LoginAction";
 import "./Header.css";
+import { useDispatch } from "react-redux";
 
 const Header = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const { isAuth } = useSelector((state) => state.login);
+
+
+
   return (
     <Card>
       <Navbar className="nav mr-auto" bg="dark" variant="light" expand="lg">
@@ -29,13 +38,16 @@ const Header = () => {
           <Nav.Link className="text-white" href="/checkout">
             <FaCartPlus />
           </Nav.Link>
-          {/* <Nav.Link className="text-white mr-sm-2" href="/logout">
-            Logout
-          </Nav.Link> */}
 
-          <Nav.Link className="text-white" href="/login">
-            SignIn / SignUp
-          </Nav.Link>
+          {isAuth ? (
+            <Nav.Link className="text-white" href="/checkout">
+              Logout
+            </Nav.Link>
+          ) : (
+            <Nav.Link className="text-white" href="/login">
+              SignIn / SignUp
+            </Nav.Link>
+          )}
         </Nav>
       </Navbar>
     </Card>
