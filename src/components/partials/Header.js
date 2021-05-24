@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Navbar, Nav, Form, Card } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { logOut } from "../../pages/login/LoginAction";
 import "./Header.css";
 import { useDispatch } from "react-redux";
@@ -12,16 +13,19 @@ const Header = () => {
   const dispatch = useDispatch();
   const { isAuth } = useSelector((state) => state.login);
 
-
+  const handleOnLogout = () => {
+    dispatch(logOut());
+    history.push("/");
+  };
 
   return (
     <Card>
       <Navbar className="nav mr-auto" bg="dark" variant="light" expand="lg">
         <Navbar.Brand className="text-white ">E-Commerce</Navbar.Brand>
         <Nav className="ml-auto">
-          <Nav.Link className="text-white" href="dashboard">
+          <Link className="text-white" to="dashboard">
             Home
-          </Nav.Link>
+          </Link>
 
           <Form inline>
             {" "}
@@ -31,23 +35,28 @@ const Header = () => {
               placeholder="Search products here..."
             />
           </Form>
-          <Nav.Link className="text-white" href="/category">
-            Shop by Category
-          </Nav.Link>
 
-          <Nav.Link className="text-white" href="/checkout">
+          <Link className="text-white" to="/category">
+            Shop by Category
+          </Link>
+
+          <Link className="text-white" to="/checkout">
             <FaCartPlus />
-          </Nav.Link>
+          </Link>
 
           {isAuth ? (
-            <Nav.Link className="text-white" href="/login"
-            onClick = {() => dispatch(logOut())}>
-              Logout
-            </Nav.Link>
+            <Link
+              className="text-white"
+              onClick={handleOnLogout}
+              style={{ cursor: "pointer" }}
+            >
+              <FiLogOut />
+              Logout /
+            </Link>
           ) : (
-            <Nav.Link className="text-white" href="/login">
+            <Link className="text-white" to="/login">
               SignIn / SignUp
-            </Nav.Link>
+            </Link>
           )}
         </Nav>
       </Navbar>

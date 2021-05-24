@@ -1,6 +1,8 @@
 import { loginPending, loginSuccess, loginFail } from "./LoginSlice";
 import { getLoginAPI } from "../../api/loginAPI";
 
+import { updateLogin } from "./LoginSlice";
+
 export const getLogin = (frmDt) => async (dispatch) => {
   try {
     dispatch(loginPending());
@@ -20,17 +22,10 @@ export const getLogin = (frmDt) => async (dispatch) => {
   }
 };
 
-
-export const logOut = () => dispatch => {
+export const logOut = () => (dispatch) => {
+  //first clear browser storage
+  sessionStorage.removeItem("accessJWT");
+  localStorage.removeItem("ourEcmRJWT");
+  dispatch(updateLogin());
   
-    //first clear browser storage
-    sessionStorage.removeItem("accessJWT")
-    localStorage.removeItem("ourEcmRJWT")
-
-    // remove tokens from servers
-
-
-
-  }
-
-
+};

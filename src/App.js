@@ -9,7 +9,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PasswordReset from "./pages/password-reset/PasswordReset";
 import CreateUser from "./pages/create-user/CreateUser";
 import Product from "./pages/product/Product";
-import PurchaseHistory from "./pages/purchase-history/PurchaseHistory";
 import CheckOutPage from "./pages/check-out-page/CheckOutPage";
 import Category from "./pages/category/Category";
 import { PrivateRoute } from "./components/private-route/PrivateRoute";
@@ -24,31 +23,31 @@ function App() {
               <Login />
             </Route>
 
-            <Route path="/product">
+            <Route exact path="/product">
               <Product />
             </Route>
 
-            <Route path="/category">
+            <Route exact path="/category">
               <Category />
             </Route>
 
-            <Route path="/checkout">
+            <Route exact path="/checkout">
               <CheckOutPage />
             </Route>
 
-            <PrivateRoute path="/checkout">
+            <PrivateRoute exact path="/checkout">
               <CheckOutPage />
             </PrivateRoute>
 
-            <Route path="/reset-password">
+            <Route exact path="/reset-password">
               <PasswordReset />
             </Route>
 
-            <Route path="/create-user">
+            <Route exact path="/create-user">
               <CreateUser />
             </Route>
 
-            <Route path="/">
+            <Route exact path="/">
               <Dashboard />
             </Route>
 

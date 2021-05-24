@@ -20,9 +20,9 @@ export const LoginForm = () => {
 
   useEffect(() => {
     
-    isAuth && history.push("/dashboard");
+    isAuth && history.push("/");
    
-  }, [loginResponse,isAuth]);
+  }, [isAuth]);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
