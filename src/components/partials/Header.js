@@ -40,7 +40,8 @@ const Header = () => {
           </Nav.Link>
 
           {isAuth ? (
-            <Nav.Link className="text-white" href="/checkout">
+            <Nav.Link className="text-white" href="/login"
+            onClick = {() => dispatch(logOut())}>
               Logout
             </Nav.Link>
           ) : (
