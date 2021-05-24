@@ -20,9 +20,11 @@ function App() {
       <div className="content-wrap">
         <Router>
           <Switch>
+
             <Route exact path="/login">
               <Login />
             </Route>
+
             <Route path="/product">
               <Product />
             </Route>
@@ -30,16 +32,17 @@ function App() {
             <Route path="/category">
               <Category />
             </Route>
-            {/* <PrivateRoute exac></PrivateRoute> */}
 
             <Route path="/checkout">
               <CheckOutPage />
             </Route>
+
+            <PrivateRoute path="/checkout">
+              <CheckOutPage />
+            </PrivateRoute>
+            
             <Route path="/reset-password">
               <PasswordReset />
-            </Route>
-            <Route path="/create-user">
-              <CreateUser />
             </Route>
 
             <Route path="/create-user">

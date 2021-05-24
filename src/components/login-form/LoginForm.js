@@ -12,15 +12,17 @@ const initialState = {
 export const LoginForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { isLoading, loginResponse } = useSelector((state) => state.login);
+  const { isLoading, loginResponse,isAuth } = useSelector((state) => state.login);
 
   const [login, setLogin] = useState(initialState);
 
   const token = sessionStorage.getItem("accessJWT");
 
   useEffect(() => {
-    token && history.push("/login");
-  }, [loginResponse]);
+    
+    isAuth && history.push("/dashboard");
+   
+  }, [loginResponse,isAuth]);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
