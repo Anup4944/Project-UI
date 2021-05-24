@@ -13,7 +13,10 @@ export const getLogin = (frmDt) => async (dispatch) => {
     accessJWT && sessionStorage.setItem("accessJWT", accessJWT);
     refreshJWT && localStorage.setItem("ourEcmRJWT", refreshJWT);
 
-    dispatch(loginSuccess(result));
+    if (result.status === "success") {
+      return dispatch(loginSuccess(result));
+    }
+    dispatch(loginFail(result));
   } catch (error) {
     const err = {
       status: "error",
@@ -27,5 +30,4 @@ export const logOut = () => (dispatch) => {
   sessionStorage.removeItem("accessJWT");
   localStorage.removeItem("ourEcmRJWT");
   dispatch(updateLogin());
-  
 };

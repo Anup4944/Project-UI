@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Form, Col, Button } from "react-bootstrap";
+import { Form, Col, Button,Alert, Spinner } from "react-bootstrap";
 import "./CreateUserForm.css";
 import { useHistory } from "react-router-dom";
+import { createNewUserApi } from "../../api/createUserAPI";
+import { useDispatch, useSelector } from "react-redux";
+import { newUser } from "../../pages/create-user/CreateUserAction";
 
 const initialState = {
-  fname: "",
-  lname: "",
+  fName: "",
+  lName: "",
   email: "",
   password: "",
+  confPass: "",
 };
 
 const passVerificationError = {
@@ -21,9 +25,10 @@ const passVerificationError = {
 
 const CreateUserForm = () => {
   const history = useHistory();
-
   const [user, setUser] = useState(initialState);
   const [passwordError, setPasswordError] = useState(passVerificationError);
+  const dispatch = useDispatch();
+  const { isLoading, userList ,status, message} = useSelector((state) => state.createUser);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -60,19 +65,34 @@ const CreateUserForm = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     console.log(user);
-    history.push("/");
+    const {confPass, ...userObj} = user;
+
+    dispatch(newUser(userObj));
   };
 
   return (
     <div>
+     
       <Form className="main-form " onSubmit={handleOnSubmit}>
+
+      {isLoading && <Spinner variant="primary" animation="border" />}
+          {message && (
+            <Alert
+              variant={
+                status === "success" ? "success" : "danger"
+              }
+            >
+              {" "}
+              {message}{" "}
+            </Alert>
+          )}
         <Form.Row>
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>First Name</Form.Label>
             <Form.Control
-              name="fname"
-              type="fname"
-              value={user.fname}
+              name="fName"
+              type="fName"
+              value={user.fName}
               onChange={handleOnChange}
               placeholder="Enter your first name"
             />
@@ -80,9 +100,9 @@ const CreateUserForm = () => {
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Last Name</Form.Label>
             <Form.Control
-              name="lname"
-              type="lname"
-              value={user.lname}
+              name="lName"
+              type="lName"
+              value={user.lName}
               onChange={handleOnChange}
               placeholder="Enter your last name"
             />
@@ -112,7 +132,7 @@ const CreateUserForm = () => {
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
               type="password"
-              name="confpass"
+              name="confPass"
               value={user.confPass}
               onChange={handleOnChange}
               placeholder="Confirm Password"

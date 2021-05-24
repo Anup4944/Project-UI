@@ -1,12 +1,13 @@
 import axios from "axios";
 
 const rootUrl = "http://localhost:5001/api/v1/";
-const crtUserAPI = rootUrl + "product";
+const creatUserAPI = rootUrl + "user";
 
-export const crtUserAPI = () => {
-  return new Promise((resolve, reject) => {
+export const createNewUserApi = (frmDt) => {
+  return new Promise(async(resolve, reject) => {
     try {
-      const { data } = await axios.get(crtUserAPI);
+      const { data } = await axios.post(creatUserAPI, frmDt);
+      console.log(data)
       resolve(data);
     } catch (error) {
       reject(error);

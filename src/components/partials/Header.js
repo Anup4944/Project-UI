@@ -23,7 +23,7 @@ const Header = () => {
       <Navbar className="nav mr-auto" bg="dark" variant="light" expand="lg">
         <Navbar.Brand className="text-white ">E-Commerce</Navbar.Brand>
         <Nav className="ml-auto">
-          <Link className="text-white" to="dashboard">
+          <Link className="text-white" to="/">
             Home
           </Link>
 
