@@ -16,14 +16,11 @@ export const LoginForm = () => {
 
   const [login, setLogin] = useState(initialState);
 
-  const token= sessionStorage.getItem("accessJWT");
- 
+  const token = sessionStorage.getItem("accessJWT");
 
   useEffect(() => {
-    
-    token && history.push("/login")
-  }, [loginResponse])
- 
+    token && history.push("/login");
+  }, [loginResponse]);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -42,9 +39,6 @@ export const LoginForm = () => {
     }
 
     dispatch(getLogin(login));
-
-    
-   
   };
 
   return (
