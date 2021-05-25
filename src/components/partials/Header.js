@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Navbar, Nav, Form, Card } from "react-bootstrap";
+import { Navbar, Nav, Form, Card, Dropdown } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { useSelector } from "react-redux";
@@ -7,11 +7,18 @@ import { useHistory, Link } from "react-router-dom";
 import { logOut } from "../../pages/login/LoginAction";
 import "./Header.css";
 import { useDispatch } from "react-redux";
+import { getCategories } from "../../pages/category/CategoryAction";
 
 const Header = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { isAuth } = useSelector((state) => state.login);
+
+  const { isLoading, categoryList } = useSelector((state) => state.category);
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
 
   const handleOnLogout = () => {
     dispatch(logOut());
@@ -37,7 +44,21 @@ const Header = () => {
           </Form>
 
           <Link className="text-white" to="/category">
-            Shop by Category
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Shop by Category
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                {categoryList?.map((item, i) => {
+                  return (
+                    <div>
+                      <Dropdown.Item to={`/category/${item.slug}`}>{item.name}</Dropdown.Item> 
+                    </div>
+                  );
+                })}
+                {/* <Dropdown.Item to={`/category/${item.slug}`}>{item.name}</Dropdown.Item> */}
+              </Dropdown.Menu>
+            </Dropdown>
           </Link>
 
           <Link className="text-white" to="/checkout">

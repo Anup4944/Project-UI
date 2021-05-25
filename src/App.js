@@ -31,6 +31,10 @@ function App() {
               <Category />
             </Route>
 
+            <Route exact path="/category/:slug">
+              <Category />
+            </Route>
+
             <Route exact path="/checkout">
               <CheckOutPage />
             </Route>

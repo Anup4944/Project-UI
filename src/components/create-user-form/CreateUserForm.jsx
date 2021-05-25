@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Col, Button,Alert, Spinner } from "react-bootstrap";
+import { Form, Col, Button,Alert, Spinner, Container } from "react-bootstrap";
 import "./CreateUserForm.css";
 import { useHistory } from "react-router-dom";
 import { createNewUserApi } from "../../api/createUserAPI";
@@ -71,11 +71,8 @@ const CreateUserForm = () => {
   };
 
   return (
-    <div>
-     
-      <Form className="main-form " onSubmit={handleOnSubmit}>
-
-      {isLoading && <Spinner variant="primary" animation="border" />}
+    <div className="user">
+      <div > {isLoading && <Spinner variant="primary" animation="border" />}
           {message && (
             <Alert
               variant={
@@ -85,7 +82,11 @@ const CreateUserForm = () => {
               {" "}
               {message}{" "}
             </Alert>
-          )}
+          )}</div>
+     <div>
+      <Form className="main-form " onSubmit={handleOnSubmit}>
+
+     
         <Form.Row>
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>First Name</Form.Label>
@@ -190,9 +191,11 @@ const CreateUserForm = () => {
             >
               Submit
             </Button>
+            <a href="/login"> Login</a>
           </Form.Group>
         </Form.Row>
       </Form>
+      </div>
     </div>
   );
 };

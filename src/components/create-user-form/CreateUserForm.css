@@ -3,4 +3,11 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin-bottom: 60px;
+}
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
