@@ -32,7 +32,7 @@ function App() {
             </Route>
 
             <Route exact path="/category/:slug">
-              <Category />
+              <Category/>
             </Route>
 
             <Route exact path="/checkout">

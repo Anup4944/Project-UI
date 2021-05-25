@@ -9,9 +9,11 @@ import "./Header.css";
 import { useDispatch } from "react-redux";
 import { getCategories } from "../../pages/category/CategoryAction";
 
+
 const Header = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  
   const { isAuth } = useSelector((state) => state.login);
 
   const { isLoading, categoryList } = useSelector((state) => state.category);
@@ -24,6 +26,7 @@ const Header = () => {
     dispatch(logOut());
     history.push("/");
   };
+  console.log(categoryList)
 
   return (
     <Card>
@@ -43,20 +46,22 @@ const Header = () => {
             />
           </Form>
 
-          <Link className="text-white" to="/category">
+          <Link className="text-white" >
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Shop by Category
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 {categoryList?.map((item, i) => {
+                  
                   return (
                     <div>
-                      <Dropdown.Item to={`/category/${item.slug}`}>{item.name}</Dropdown.Item> 
+                      <Dropdown.Item >
+                        <Link to={`/category/${item.slug}`}>{item.name}</Link></Dropdown.Item> 
                     </div>
                   );
                 })}
-                {/* <Dropdown.Item to={`/category/${item.slug}`}>{item.name}</Dropdown.Item> */}
+                
               </Dropdown.Menu>
             </Dropdown>
           </Link>

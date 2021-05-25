@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
-import { getCategories } from "../../pages/category/CategoryAction";
-import { useSelector, useDispatch } from "react-redux";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams
+} from "react-router-dom";
+
 
 const ListCategory = () => {
+  let { slug } = useParams();
   
 
   return (
     <div className="container">
-      
+      Here are category
     </div>
   );
 };
