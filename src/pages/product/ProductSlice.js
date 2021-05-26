@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isLoading: false,
   productList: [],
-  currentViewList : []
+  currentViewList: [],
 };
 
 const productSlice = createSlice({
@@ -21,7 +21,13 @@ const productSlice = createSlice({
 
     fetchCatProducts: (state, { payload }) => {
       state.status = payload.status;
-     state.currentViewList = payload.result;
+      state.currentViewList = payload.result;
+      state.isLoading = false;
+    },
+
+    fetchSingleProducts: (state, { payload }) => {
+      state.status = payload.status;
+
       state.isLoading = false;
     },
 
@@ -35,6 +41,12 @@ const productSlice = createSlice({
 
 const { reducer, actions } = productSlice;
 
-export const { requestPending, fetchAllProductSuccess, requestFail,fetchCatProducts } = actions;
+export const {
+  requestPending,
+  fetchAllProductSuccess,
+  requestFail,
+  fetchCatProducts,
+  fetchSingleProducts,
+} = actions;
 
 export default reducer;

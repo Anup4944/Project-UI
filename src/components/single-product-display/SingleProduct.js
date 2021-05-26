@@ -1,25 +1,36 @@
 import React, { useEffect } from "react";
 import DefaultLayout from "../layout/DefaultLayout";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../pages/product/ProductAction";
+import { getSingleProducts } from "../../pages/product/ProductAction";
 import { Image, Button } from "react-bootstrap";
-import { getSingleProd } from "../../pages/single-product-page/SingleProdAction";
+import { useParams } from "react-router-dom";
 
 export const SingleProduct = () => {
   const dispatch = useDispatch();
+  
+  let { slug } = useParams();
 
-  const { isLoading, productList } = useSelector((state) => state.product);
+  const { productList } = useSelector((state) => state.product);
+  const { currentViewList } = useSelector((state) => state.product);
+
+
+  const selectedProd = productList.filter((prod) => prod.slug === slug);
+  const prodId = selectedProd[0]?._id;
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    dispatch(getSingleProducts(prodId));
+  }, [dispatch, prodId]);
+
+  
+
   return (
     <div>
       <DefaultLayout>
-        {productList?.map((item, i) => {
+        {currentViewList?.map((item, i) => {
           return (
             <div className="container">
               <br />
+
               Product Name : {item.name} <br />
               Product Price : {item.price} <br />
               Product Sale End Date : {item.saleEndDate} <br />

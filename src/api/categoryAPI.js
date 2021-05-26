@@ -6,7 +6,6 @@ const catApi = rootUrl + "category";
 export const getCategoryAPI = () => {
   return new Promise(async (resolve, reject) => {
     try {
-      console.log("from here")
       const { data } = await axios.get(catApi);
 
       resolve(data);

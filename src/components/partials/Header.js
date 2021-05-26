@@ -26,7 +26,7 @@ const Header = () => {
     dispatch(logOut());
     history.push("/");
   };
-  console.log(categoryList)
+  
 
   return (
     <Card>

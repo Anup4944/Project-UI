@@ -1,11 +1,11 @@
-import { getProductsAPI } from "../../api/productAPI";
+import { getSingleProductAPI } from "../../api/productAPI";
 
 import  {requestPending,fetchAllSingleProdSuccess,requestFail} from "./SingleProdSlice"
 
 export const getSingleProd = () => async (dispatch) =>{
     try {
         dispatch(requestPending());
-        const result = await getProductsAPI();
+        const result = await getSingleProductAPI();
     dispatch(fetchAllSingleProdSuccess(result));
 
     } catch (error) {
