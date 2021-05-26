@@ -12,6 +12,7 @@ import Product from "./pages/product/Product";
 import CheckOutPage from "./pages/check-out-page/CheckOutPage";
 import Category from "./pages/category/Category";
 import { PrivateRoute } from "./components/private-route/PrivateRoute";
+import { SingleProd } from "./pages/single-product-page/SingleProd";
 
 function App() {
   return (
@@ -34,6 +35,12 @@ function App() {
             <Route exact path="/category/:slug">
               <Category/>
             </Route>
+
+            <Route exact path="/product/:slug">
+              <SingleProd/>
+            </Route>
+
+
 
             <Route exact path="/checkout">
               <CheckOutPage />
