@@ -33,7 +33,7 @@ export const getSingleProductAPI = (prodId) => {
   return new Promise(async (resolve, reject) => {
     try {
       const { data } = await axios.get(singleProdApi + prodId);
-console.log(data)
+
       resolve(data);
     } catch (error) {
       reject(error);

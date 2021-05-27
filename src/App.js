@@ -42,9 +42,9 @@ function App() {
 
 
 
-            <Route exact path="/checkout">
+            {/* <Route exact path="/checkout">
               <CheckOutPage />
-            </Route>
+            </Route> */}
 
             <PrivateRoute exact path="/checkout">
               <CheckOutPage />

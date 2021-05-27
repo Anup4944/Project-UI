@@ -14,17 +14,13 @@ export const SingleProduct = () => {
   const { productList } = useSelector((state) => state.product);
   const { currentViewList } = useSelector((state) => state.product);
 
-  // const selectedProd = productList.filter((pro) => pro.slug === slug);
-  // console.log(selectedProd)
-  // const prodId = selectedProd[0]?._id;
-
   useEffect(() => {
     slug && dispatch(getSingleProducts(slug));
   }, [dispatch, slug]);
 
   return (
-    <div>
-      <DefaultLayout>
+    <DefaultLayout>
+      <div>
         <div className="container">
           <br />
           Product Name : {currentViewList.name} <br />
@@ -38,8 +34,7 @@ export const SingleProduct = () => {
           <br />
           <Button>Add to cart </Button>
         </div>
-        );
-      </DefaultLayout>
-    </div>
+      </div>
+    </DefaultLayout>
   );
 };
