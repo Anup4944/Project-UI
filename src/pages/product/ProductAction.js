@@ -46,11 +46,12 @@ export const getProductsByCat = ( catId) => async (dispatch) => {
 
 
 
-export const getSingleProducts = ( prodId) => async (dispatch) => {
+export const getSingleProducts = ( slug) => async (dispatch) => {
   try {
     dispatch(requestPending());
 
-    const result = await getSingleProductAPI(prodId);
+    const result = await getSingleProductAPI(slug);
+    console.log(result)
     
     dispatch(fetchSingleProducts(result));
   } catch (error) {

@@ -2,8 +2,8 @@ import axios from "axios";
 
 const rootUrl = "http://localhost:5001/api/v1/";
 const prodApi = rootUrl + "product";
-const prodCatApi = rootUrl + "product/cat/";
-const singleProdApi = rootUrl + "product/cat/";
+const prodCatApi = rootUrl + "product/product/";
+const singleProdApi = rootUrl + "product/product/";
 
 export const getProductsAPI = () => {
   return new Promise(async (resolve, reject) => {
@@ -33,7 +33,7 @@ export const getSingleProductAPI = (prodId) => {
   return new Promise(async (resolve, reject) => {
     try {
       const { data } = await axios.get(singleProdApi + prodId);
-
+console.log(data)
       resolve(data);
     } catch (error) {
       reject(error);

@@ -7,43 +7,38 @@ import { useParams } from "react-router-dom";
 
 export const SingleProduct = () => {
   const dispatch = useDispatch();
-  
+
   let { slug } = useParams();
+  console.log(slug);
 
   const { productList } = useSelector((state) => state.product);
   const { currentViewList } = useSelector((state) => state.product);
 
-
-  const selectedProd = productList.filter((prod) => prod.slug === slug);
-  const prodId = selectedProd[0]?._id;
+  // const selectedProd = productList.filter((pro) => pro.slug === slug);
+  // console.log(selectedProd)
+  // const prodId = selectedProd[0]?._id;
 
   useEffect(() => {
-    dispatch(getSingleProducts(prodId));
-  }, [dispatch, prodId]);
-
-  
+    slug && dispatch(getSingleProducts(slug));
+  }, [dispatch, slug]);
 
   return (
     <div>
       <DefaultLayout>
-        {currentViewList?.map((item, i) => {
-          return (
-            <div className="container">
-              <br />
-
-              Product Name : {item.name} <br />
-              Product Price : {item.price} <br />
-              Product Sale End Date : {item.saleEndDate} <br />
-              Product Qty : {item.qty} <br />
-              Product Description : {item.description} <br />
-              Product Category : {item.categories}
-              <br />
-              <Image src={item.images[0]} />
-              <br />
-              <Button>Add to cart </Button>
-            </div>
-          );
-        })}
+        <div className="container">
+          <br />
+          Product Name : {currentViewList.name} <br />
+          Product Price : {currentViewList.price} <br />
+          Product Sale End Date : {currentViewList.saleEndDate} <br />
+          Product Qty : {currentViewList.qty} <br />
+          Product Description : {currentViewList.description} <br />
+          Product Category : {currentViewList.categories}
+          <br />
+          <Image src={currentViewList.images} />
+          <br />
+          <Button>Add to cart </Button>
+        </div>
+        );
       </DefaultLayout>
     </div>
   );

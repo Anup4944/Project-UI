@@ -27,7 +27,7 @@ const productSlice = createSlice({
 
     fetchSingleProducts: (state, { payload }) => {
       state.status = payload.status;
-
+      state.currentViewList = payload.result;
       state.isLoading = false;
     },
 

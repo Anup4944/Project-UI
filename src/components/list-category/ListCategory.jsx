@@ -6,12 +6,16 @@ import { getProductsByCat } from "../../pages/product/ProductAction";
 const ListCategory = () => {
   const dispatch = useDispatch();
   let { slug } = useParams();
+ 
+  
 
   const { categoryList } = useSelector((state) => state.category);
   const { currentViewList } = useSelector((state) => state.product);
 
   const selectedCat = categoryList.filter((cat) => cat.slug === slug);
   const catId = selectedCat[0]?._id;
+  
+ 
 
   console.log(slug);
 
