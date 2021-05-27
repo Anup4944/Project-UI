@@ -9,11 +9,13 @@ const ListCategory = () => {
 
   const { categoryList } = useSelector((state) => state.category);
   const { currentViewList } = useSelector((state) => state.product);
+  
 
   const selectedCat = categoryList.filter((cat) => cat.slug === slug);
   const catId = selectedCat[0]?._id;
+ console.log(catId)
 
-  console.log(slug);
+  
 
   useEffect(() => {
     catId && dispatch(getProductsByCat(catId));
@@ -21,9 +23,9 @@ const ListCategory = () => {
 
   return (
     <div className="container">
-      {currentViewList?.map((row, i) => {
-        return <div>{row.name}</div>;
-      })}
+      {/* {currentViewList?.map((row, i) => { */}
+         <div>Hello {currentViewList.slug}</div>
+      {/* })} */}
     </div>
   );
 };

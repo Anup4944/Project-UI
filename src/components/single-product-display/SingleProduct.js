@@ -9,9 +9,8 @@ export const SingleProduct = () => {
   const dispatch = useDispatch();
 
   let { slug } = useParams();
-  console.log(slug);
+  
 
-  const { productList } = useSelector((state) => state.product);
   const { currentViewList } = useSelector((state) => state.product);
 
   useEffect(() => {

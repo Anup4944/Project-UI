@@ -32,6 +32,7 @@ export const getProductsByCat = ( catId) => async (dispatch) => {
 
     const result = await getProductsByCatAPI(catId);
     
+    
     dispatch(fetchCatProducts(result));
   } catch (error) {
     const err = {
