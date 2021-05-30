@@ -28,9 +28,9 @@ function App() {
               <Product />
             </Route>
 
-            <Route exact path="/category">
+            {/* <Route exact path="/category">
               <Category />
-            </Route>
+            </Route> */}
 
             <Route exact path="/category/:slug">
               <Category/>
@@ -40,11 +40,9 @@ function App() {
               <SingleProd/>
             </Route>
 
-
-
-            {/* <Route exact path="/checkout">
+            <Route exact path="/checkout">
               <CheckOutPage />
-            </Route> */}
+            </Route>
 
             <PrivateRoute exact path="/checkout">
               <CheckOutPage />
