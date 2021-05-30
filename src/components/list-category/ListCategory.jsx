@@ -18,10 +18,19 @@ const ListCategory = () => {
     catId && dispatch(getProductsByCat(catId));
   }, [dispatch, catId]);
 
-  return <div className="container">
-    {currentViewList?.map((item,i)=>{
-      <div>Product Name: {item.name}</div>
-    })}</div>;
+  return (
+    <div className="container">
+      {currentViewList?.map((item,i) =>{
+        <div>
+          Here are the products that fall under this category
+      <ul>
+        <li>{currentViewList.item}</li>
+      </ul>
+        </div>
+      })}
+      
+    </div>
+  );
 };
 
 export default ListCategory;

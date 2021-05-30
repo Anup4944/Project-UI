@@ -10,31 +10,31 @@ const Dashboard = () => {
 
   const { isLoading, productList } = useSelector((state) => state.product);
 
-
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
+
+  const handleOnClick = () => {
+
+  };
+
+  
   return (
     <div>
       <DefaultLayout>
-      <h1 className="deal" >Todays deal</h1>
+        <h1 className="deal">Todays deal</h1>
         {productList?.map((item, i) => {
           return (
-         
             <div className="container">
-               
               <br />
-              
-              Product Name : <a href={`/product/${item.slug}`}> {item.name} </a> <br />
-              {/* Product Price : {item.price} <br />
-              Product Sale End Date : {item.saleEndDate} <br />
-              Product Qty : {item.qty} <br />
-              Product Description : {item.description} <br />
-              Product Category : {item.categories} */}
+              Product Name : <a href={`/product/${item.slug}`}>
+                {" "}
+                {item.name}{" "}
+              </a>{" "}
               <br />
               <Image src={item.images[0]} />
               <br />
-              <Button>Add to cart </Button>
+              <Button onClick={handleOnClick}>Add to cart </Button>
             </div>
           );
         })}
