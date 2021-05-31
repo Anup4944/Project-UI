@@ -21,16 +21,17 @@ const ListCategory = () => {
   return (
     <div className="container">
       <h1> Here are the products that fall under this category.</h1>
-      {currentViewList.length &&
-        currentViewList.map((item, i) => {
-          return (
-            <div>
-              <ul>
-                <li><a href={`/product/${item.slug}`}>{item.name}</a></li>
-              </ul>
-            </div>
-          );
-        })}
+      {currentViewList.map((item, i) => {
+        return (
+          <div>
+            <ul>
+              <li>
+                <a href={`/product/${item.slug}`}>{item.name}</a>
+              </li>
+            </ul>
+          </div>
+        );
+      })}
     </div>
   );
 };

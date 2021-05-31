@@ -4,10 +4,11 @@ import {
   requestFail,
 } from "./CheckOutSlice";
 
-export const addToCart = (prodId) => async (dispatch) => {
+export const addToCart = (product) => async (dispatch) => {
   try {
     dispatch(requestPending());
-    const result = dispatch(addProductSuccess(prodId));
+    const result = dispatch(addProductSuccess(product));
+    console.log(">>>>>>" , result)
     
   } catch (error) {
     const err = {

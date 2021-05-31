@@ -3,12 +3,17 @@ import DefaultLayout from "../layout/DefaultLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleProducts } from "../../pages/product/ProductAction";
 import { Image, Button } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams,useHistory } from "react-router-dom";
 
 export const SingleProduct = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   let { slug } = useParams();
+  const handleOnClick = (e) => {
+    e.preventDefault();
+    history.push("/checkout");
+  };
   
 
   const { currentViewList } = useSelector((state) => state.product);
@@ -31,7 +36,7 @@ export const SingleProduct = () => {
           <br />
           <Image src={currentViewList.images} />
           <br />
-          <Button>Add to cart </Button>
+          <Button onClick={handleOnClick}>Add to cart </Button>
         </div>
       </div>
     </DefaultLayout>

@@ -4,9 +4,11 @@ import DefaultLayout from "../../components/layout/DefaultLayout";
 import { getProducts } from "../../pages/product/ProductAction";
 import { Image, Button } from "react-bootstrap";
 import "./Dashboard.css";
+import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const { isLoading, productList } = useSelector((state) => state.product);
 
@@ -14,12 +16,11 @@ const Dashboard = () => {
     dispatch(getProducts());
   }, [dispatch]);
 
-  const handleOnClick = () => {
-    
-
+  const handleOnClick = (e) => {
+    e.preventDefault();
+    history.push("/checkout");
   };
 
-  
   return (
     <div>
       <DefaultLayout>

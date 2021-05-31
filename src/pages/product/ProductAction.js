@@ -52,7 +52,7 @@ export const getSingleProducts = ( slug) => async (dispatch) => {
     dispatch(requestPending());
 
     const result = await getSingleProductAPI(slug);
-    console.log(result)
+    
     
     dispatch(fetchSingleProducts(result));
   } catch (error) {

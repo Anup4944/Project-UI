@@ -4,9 +4,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     isLoading: false,
     productList: [],
-    cart: [],
-    currentItem: null 
+    cart: []
   };
+
+  
 const checkOutSlice = createSlice({
   name: "checkout",
   initialState,

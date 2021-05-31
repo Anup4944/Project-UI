@@ -15,7 +15,7 @@ const Header = () => {
 
   const { isAuth } = useSelector((state) => state.login);
 
-  const { isLoading, categoryList } = useSelector((state) => state.category);
+  const { categoryList } = useSelector((state) => state.category);
 
   useEffect(() => {
     dispatch(getCategories());
@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <Card>
-      <Navbar className="nav mr-auto" bg="dark" variant="light" expand="lg">
+      <Navbar className="nav ml-auto" bg="dark" variant="light" expand="lg">
         <Navbar.Brand className="text-white ">E-Commerce</Navbar.Brand>
         <Nav className="ml-auto">
           <Link className="text-white" to="/">
