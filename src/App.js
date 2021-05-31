@@ -40,6 +40,14 @@ function App() {
               <SingleProd/>
             </Route>
 
+            <PrivateRoute exact path="/category/:slug">
+              <Category/>
+            </PrivateRoute>
+
+            <PrivateRoute exact path="/product/:slug">
+              <SingleProd/>
+            </PrivateRoute>
+
             <Route exact path="/checkout">
               <CheckOutPage />
             </Route>

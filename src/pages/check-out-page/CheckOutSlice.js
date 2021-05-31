@@ -4,7 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     isLoading: false,
     productList: [],
-    currentViewList: [],
+    cart: [],
+    currentItem: null 
   };
 const checkOutSlice = createSlice({
   name: "checkout",
@@ -15,7 +16,7 @@ const checkOutSlice = createSlice({
     },
     addProductSuccess: (state ,{payload}) => {
       state.isLoading = false;
-      state.currentViewList = payload.result;
+      state.productList = payload.result || [];
       state.status = payload.status;
       
     },

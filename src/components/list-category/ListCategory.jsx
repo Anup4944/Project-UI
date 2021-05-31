@@ -26,7 +26,7 @@ const ListCategory = () => {
           return (
             <div>
               <ul>
-                <li>{item.name}</li>
+                <li><a href={`/product/${item.slug}`}>{item.name}</a></li>
               </ul>
             </div>
           );
