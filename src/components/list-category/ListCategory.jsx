@@ -12,7 +12,7 @@ const ListCategory = () => {
 
   const selectedCat = categoryList.filter((cat) => cat.slug === slug);
   const catId = selectedCat[0]?._id;
-  console.log(currentViewList);
+  console.log(">>>>>>>>", currentViewList);
 
   useEffect(() => {
     catId && dispatch(getProductsByCat(catId));
@@ -20,15 +20,17 @@ const ListCategory = () => {
 
   return (
     <div className="container">
-      {currentViewList?.map((item,i) =>{
-        <div>
-          Here are the products that fall under this category
-      <ul>
-        <li>{currentViewList.item}</li>
-      </ul>
-        </div>
-      })}
-      
+      <h1> Here are the products that fall under this category.</h1>
+      {currentViewList.length &&
+        currentViewList.map((item, i) => {
+          return (
+            <div>
+              <ul>
+                <li>{item.name}</li>
+              </ul>
+            </div>
+          );
+        })}
     </div>
   );
 };

@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     isLoading: false,
+    productList: [],
+    currentViewList: [],
   };
 const checkOutSlice = createSlice({
   name: "checkout",
@@ -13,8 +15,9 @@ const checkOutSlice = createSlice({
     },
     addProductSuccess: (state ,{payload}) => {
       state.isLoading = false;
+      state.currentViewList = payload.result;
       state.status = payload.status;
-      state.message = payload.message;
+      
     },
     requestFail: (state) => {
       state.isLoading = false;
