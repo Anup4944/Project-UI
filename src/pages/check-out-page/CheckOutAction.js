@@ -1,14 +1,14 @@
 import {
   requestPending,
   addProductSuccess,
-  requestFail,removeProductSuccess
+  requestFail,
+  removeProductSuccess,
 } from "./CheckOutSlice";
 
 export const addToCart = (product) => async (dispatch) => {
   try {
     dispatch(requestPending());
-    dispatch(addProductSuccess(product));
-    console.log(product)
+    product._id && dispatch(addProductSuccess(product));
   } catch (error) {
     const err = {
       status: "error",

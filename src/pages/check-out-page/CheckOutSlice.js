@@ -13,6 +13,8 @@ const checkOutSlice = createSlice({
       state.isLoading = true;
     },
     addProductSuccess: (state, { payload }) => {
+
+      console.log(payload, "from add slice")
       state.cart.push(payload);
     },
     removeProductSuccess: (state, { payload }) => {
