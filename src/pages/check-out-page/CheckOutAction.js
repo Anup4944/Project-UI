@@ -1,15 +1,14 @@
 import {
   requestPending,
   addProductSuccess,
-  requestFail,
+  requestFail,removeProductSuccess
 } from "./CheckOutSlice";
 
 export const addToCart = (product) => async (dispatch) => {
   try {
     dispatch(requestPending());
-    const result = dispatch(addProductSuccess(product));
-    console.log(">>>>>>" , result)
-    
+    dispatch(addProductSuccess(product));
+    console.log(product)
   } catch (error) {
     const err = {
       status: "error",
@@ -20,8 +19,14 @@ export const addToCart = (product) => async (dispatch) => {
   }
 };
 
-export const removeFromCart = (prodId) => async (dispatch) => {
+export const removeFromCart = (product) => async (dispatch) => {
   try {
     dispatch(requestPending());
-  } catch (error) {}
+    dispatch(removeProductSuccess(product));
+  } catch (error) {
+    const err = {
+      status: "error",
+      message: error.message,
+    };
+  }
 };

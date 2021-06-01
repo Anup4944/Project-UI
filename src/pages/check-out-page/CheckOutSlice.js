@@ -1,13 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialState = {
-    isLoading: false,
-    productList: [],
-    cart: []
-  };
+  isLoading: false,
+  cart: [],
+};
 
-  
 const checkOutSlice = createSlice({
   name: "checkout",
   initialState,
@@ -15,11 +12,11 @@ const checkOutSlice = createSlice({
     requestPending: (state) => {
       state.isLoading = true;
     },
-    addProductSuccess: (state ,{payload}) => {
-      state.isLoading = false;
-      state.productList = payload.result || [];
-      state.status = payload.status;
-      
+    addProductSuccess: (state, { payload }) => {
+      state.cart.push(payload);
+    },
+    removeProductSuccess: (state, { payload }) => {
+      state.cart.splice(payload);
     },
     requestFail: (state) => {
       state.isLoading = false;
@@ -28,5 +25,10 @@ const checkOutSlice = createSlice({
 });
 
 const { reducer, actions } = checkOutSlice;
-export const { requestPending, addProductSuccess, requestFail } = actions;
+export const {
+  requestPending,
+  addProductSuccess,
+  requestFail,
+  removeProductSuccess,
+} = actions;
 export default reducer;

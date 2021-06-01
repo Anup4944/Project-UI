@@ -12,7 +12,6 @@ const ListCategory = () => {
 
   const selectedCat = categoryList.filter((cat) => cat.slug === slug);
   const catId = selectedCat[0]?._id;
-  console.log(">>>>>>>>", currentViewList);
 
   useEffect(() => {
     catId && dispatch(getProductsByCat(catId));

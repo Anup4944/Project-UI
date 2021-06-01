@@ -5,21 +5,17 @@ import { getProducts } from "../../pages/product/ProductAction";
 import { Image, Button } from "react-bootstrap";
 import "./Dashboard.css";
 import { useHistory } from "react-router-dom";
+import { addToCart } from "../../pages/check-out-page/CheckOutAction";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { isLoading, productList } = useSelector((state) => state.product);
+  const { productList } = useSelector((state) => state.product);
 
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
-
-  const handleOnClick = (e) => {
-    e.preventDefault();
-    history.push("/checkout");
-  };
 
   return (
     <div>
@@ -36,12 +32,13 @@ const Dashboard = () => {
               <br />
               <Image src={item.images[0]} />
               <br />
-              <Button onClick={handleOnClick}>Add to cart </Button>
+              <Button onClick={() => dispatch(addToCart(item))}>
+                Add to cart{" "}
+              </Button>
             </div>
           );
         })}
       </DefaultLayout>
-      ;
     </div>
   );
 };

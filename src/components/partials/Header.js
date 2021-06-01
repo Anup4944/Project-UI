@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <Card>
-      <Navbar className="nav ml-auto" bg="dark" variant="light" expand="lg">
+      <Navbar className="navbar navbar-expand-lg  bg-dark">
         <Navbar.Brand className="text-white ">E-Commerce</Navbar.Brand>
         <Nav className="ml-auto">
           <Link className="text-white" to="/">
@@ -38,12 +38,12 @@ const Header = () => {
           <Form inline>
             {" "}
             <Form.Control
-              className="mr"
+              className="mr-15"
               type="text"
               placeholder="Search products here..."
             />
           </Form>
-
+          
           <Link className="text-white">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -62,11 +62,9 @@ const Header = () => {
               </Dropdown.Menu>
             </Dropdown>
           </Link>
-
           <Link className="text-white" to="/checkout">
             <FaCartPlus />
           </Link>
-
           {isAuth ? (
             <Link
               className="text-white"
