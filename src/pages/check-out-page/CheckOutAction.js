@@ -14,15 +14,14 @@ export const addToCart = (product) => async (dispatch) => {
       status: "error",
       message: error.message,
     };
-
     dispatch(requestFail(err));
   }
 };
 
-export const removeFromCart = (product) => async (dispatch) => {
+export const removeFromCart = (_id) => async (dispatch) => {
   try {
     dispatch(requestPending());
-    dispatch(removeProductSuccess(product));
+    dispatch(removeProductSuccess(_id));
   } catch (error) {
     const err = {
       status: "error",

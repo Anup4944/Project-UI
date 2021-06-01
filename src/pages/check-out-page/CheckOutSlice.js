@@ -13,12 +13,11 @@ const checkOutSlice = createSlice({
       state.isLoading = true;
     },
     addProductSuccess: (state, { payload }) => {
-
-      console.log(payload, "from add slice")
       state.cart.push(payload);
     },
     removeProductSuccess: (state, { payload }) => {
-      state.cart.splice(payload);
+      const filterCart = state.cart.filter(row=>row._id !== payload )
+      state.cart = filterCart
     },
     requestFail: (state) => {
       state.isLoading = false;
