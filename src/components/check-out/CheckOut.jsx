@@ -11,36 +11,32 @@ export const CheckOut = () => {
   return (
     <Container>
       <h1>Your cart summary :</h1>
-      {cart.length &&
-        cart.map((item, i) => {
-          return (
-            <Table striped bordered hover variant="dark">
-              <thead>
-                <tr>
-                  <th>Product</th>
-                  <th>Qty</th>
-                  <th>Remove</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{item.name}</td>
-                  <td></td>
-                  <td>
-                    {" "}
-                    <Button onClick={() => dispatch(removeFromCart(item._id))}>
-                      <RiDeleteBinLine />
-                    </Button>
-                  </td>
-                  <td>{item.salePrice}</td>
-                </tr>
+      <Table striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Remove</th>
+            <th>Total</th>
+          </tr>
+        </thead>
 
-                <Button variant="danger">Proceed to Payment</Button>
-              </tbody>
-            </Table>
-          );
-        })}
+        <tbody>
+          {cart.length && cart.map((item, i) => {
+            return <tr>
+              <td>{item.name}</td>
+              <td></td>
+              <td>
+                {" "}
+                <Button onClick={() => dispatch(removeFromCart(item._id))}>
+                  <RiDeleteBinLine />
+                </Button>
+              </td>
+              <td>{item.salePrice}</td>
+            </tr>;
+          })}
+        </tbody>
+      </Table>
     </Container>
   );
 };
