@@ -63,7 +63,7 @@ const Header = () => {
             </Dropdown>
           </Link>
           <Link className="text-white" to="/checkout">
-            <FaCartPlus />
+            <FaCartPlus /> 
           </Link>
           {isAuth ? (
             <Link
