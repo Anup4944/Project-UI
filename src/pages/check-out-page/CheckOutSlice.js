@@ -16,8 +16,28 @@ const checkOutSlice = createSlice({
       state.cart.push(payload);
     },
     removeProductSuccess: (state, { payload }) => {
-      const filterCart = state.cart.filter(row=>row._id !== payload )
-      state.cart = filterCart
+      const filterCart = state.cart.filter((row) => row._id !== payload);
+      state.cart = filterCart;
+    },
+    addingProductSuccess: (state, { payload }) => {
+      const addingItem = state.cart.map((row) => {
+        if (row._id == payload) {
+          row.qty++;
+          return row;
+        }
+        return row;
+      });
+      state.cart = addingItem;
+    },
+    subtractProductSuccess: (state, { payload }) => {
+      const subsItem = state.cart.map((row) => {
+        if (row._id == payload) {
+          row.qty--;
+          return row;
+        }
+        return row;
+      });
+      state.cart = subsItem;
     },
     requestFail: (state) => {
       state.isLoading = false;
@@ -31,5 +51,7 @@ export const {
   addProductSuccess,
   requestFail,
   removeProductSuccess,
+  addingProductSuccess,
+  subtractProductSuccess,
 } = actions;
 export default reducer;
