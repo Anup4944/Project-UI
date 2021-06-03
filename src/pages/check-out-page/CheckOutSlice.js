@@ -20,22 +20,25 @@ const checkOutSlice = createSlice({
       state.cart = filterCart;
     },
     addingProductSuccess: (state, { payload }) => {
-      const addingItem = state.cart.map((row) => {
-        if (row._id == payload) {
+      const addItem = state.cart.map((row) => {
+        if (row._id === payload) {
           row.qty++;
           return row;
         }
         return row;
       });
-      state.cart = addingItem;
+      state.cart = addItem;
+      
     },
     subtractProductSuccess: (state, { payload }) => {
       const subsItem = state.cart.map((row) => {
-        if (row._id == payload) {
+        if (row._id === payload) {
           row.qty--;
           return row;
+          
         }
         return row;
+        
       });
       state.cart = subsItem;
     },

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Container,
@@ -18,7 +18,17 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 
 export const CheckOut = () => {
   const dispatch = useDispatch();
+  
   const { cart } = useSelector((state) => state.checkOut);
+ 
+  const [num, setNum] = useState(0)
+
+  const incNum =() =>{
+    setNum(num+1)
+  }
+  const decNum =() =>{
+    setNum(num-1)
+  }
 
   return (
     <Container>
@@ -41,22 +51,22 @@ export const CheckOut = () => {
                 <tr>
                   <td>{item.name}</td>
 
-                  <td>
-                    <Button onClick={() => dispatch(addingItemsInsideCart())}>
+                  <td className="d-flex centre centre">
+                    <Button onClick={incNum}>
                       <FaPlusCircle />
                     </Button>
+                    {/* <Dropdown>
+                      <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        Select number of item 
+                      </Dropdown.Toggle>
 
-                    {cart?.map((row, i) => {
-                      return (
-                        <DropdownButton title="Select No. of items">
-                          <Dropdown.Item>
-                            {row.qty}
-                            </Dropdown.Item>
-                        </DropdownButton>
-                      );
-                    })}
+                      <Dropdown.Menu>
+                        <Dropdown.Item>Action</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown> */}
+                    {num}
 
-                    <Button onClick={() => dispatch(subsItemsInsideCart())}>
+                    <Button onClick={decNum}>
                       <AiOutlineMinusCircle />
                     </Button>
                   </td>
