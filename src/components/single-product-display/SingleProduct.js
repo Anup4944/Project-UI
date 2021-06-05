@@ -1,26 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import DefaultLayout from "../layout/DefaultLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleProducts } from "../../pages/product/ProductAction";
 import { Image, Button } from "react-bootstrap";
-import { useParams,useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { addToCart } from "../../pages/check-out-page/CheckOutAction";
 
 export const SingleProduct = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  let { slug } = useParams();
-  const handleOnClick = (e) => {
-    e.preventDefault();
-    history.push("/checkout");
-  };
-  
-
+  const qtyRef = useRef();
   const { currentViewList } = useSelector((state) => state.product);
+  let { slug } = useParams();
 
   useEffect(() => {
     slug && dispatch(getSingleProducts(slug));
   }, [dispatch, slug]);
+
+  const handleOnClick = () => {
+    const buyinggQty = qtyRef.current.value;
+
+    const itemToCart = {
+      buyinggQty,
+      currentViewList,
+    };
+
+    dispatch(addToCart(itemToCart))
+  };
+
+  const qtyList = new Array(currentViewList?.qty).fill("itm");
 
   return (
     <DefaultLayout>
@@ -36,7 +45,14 @@ export const SingleProduct = () => {
           <br />
           <Image src={currentViewList.images} />
           <br />
-          <Button onClick={handleOnClick}>Add to cart </Button>
+          <select name="qty" id="" ref={qtyRef} style={{ maxWidth: "100px"}}>
+            <option value="1">Select qty</option>
+            {qtyList.map((item, i) => (
+              <option value={i + 1}>{i + 1}</option>
+            ))}
+          </select>{" "}
+          <br /> <br />
+          <Button onClick={handleOnClick} style={{ maxWidth: "200px"}}>Add to cart </Button>
         </div>
       </div>
     </DefaultLayout>

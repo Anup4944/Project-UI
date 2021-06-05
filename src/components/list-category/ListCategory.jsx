@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getProductsByCat } from "../../pages/product/ProductAction";
+import  "./ListCategory.css"
 
 const ListCategory = () => {
   const dispatch = useDispatch();
@@ -19,12 +20,15 @@ const ListCategory = () => {
 
   return (
     <div className="container">
-      <h1> Here are the products that fall under this category.</h1>
-      {currentViewList.map((item, i) => {
+      <h1 className="main">
+        {" "}
+        Here are the products that fall under this category.
+      </h1>
+      {currentViewList?.map((item, i) => {
         return (
           <div>
-            <ul>
-              <li>
+            <ul className="list-group list-group-flush">
+              <li className="list-group-item">
                 <a href={`/product/${item.slug}`}>{item.name}</a>
               </li>
             </ul>

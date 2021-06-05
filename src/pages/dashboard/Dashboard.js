@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DefaultLayout from "../../components/layout/DefaultLayout";
 import { getProducts } from "../../pages/product/ProductAction";
-import { Image, Button } from "react-bootstrap";
+import { Image, Button, Card } from "react-bootstrap";
 import "./Dashboard.css";
-import { useHistory } from "react-router-dom";
-import { addToCart } from "../../pages/check-out-page/CheckOutAction";
+import { Link, useHistory } from "react-router-dom";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -20,21 +19,18 @@ const Dashboard = () => {
   return (
     <div>
       <DefaultLayout>
-        <h1 className="deal">Todays deal</h1>
+        <h1 className="jumbotron jumbotron-fluid d-flex justify-content-center" >Todays deal</h1>
         {productList?.map((item, i) => {
           return (
-            <div className="container">
+            <div className="container " style={{ maxWidth: "350px" }}>
               <br />
-              Product Name : <a href={`/product/${item.slug}`}>
-                {" "}
-                {item.name}{" "}
-              </a>{" "}
+              Product Name : <a href={`/product/${item.slug}`}>{item.name}</a>
               <br />
+              <Link to={`/product/${item.slug}`}>
+                <a className="btn btn-info">View more</a>
+              </Link>
               <Image src={item.images[0]} />
               <br />
-              <Button onClick={() => dispatch(addToCart(item))}>
-                Add to cart{" "}
-              </Button>
             </div>
           );
         })}

@@ -27,24 +27,15 @@ const Header = () => {
   };
 
   return (
-    <Card>
-      <Navbar className="navbar navbar-expand-lg  bg-dark">
-        <Navbar.Brand className="text-white ">E-Commerce</Navbar.Brand>
-        <Nav className="ml-auto">
-          <Link className="text-white" to="/">
+    <>
+      <Navbar className="navbar navbar-expand-sm bg-dark navbar-dark">
+        <Navbar.Brand className="text-white nav-items ">Logo</Navbar.Brand>
+        <Nav className="ml">
+          <Link className="nav-items text-white" to="/">
             Home
           </Link>
 
-          <Form inline>
-            {" "}
-            <Form.Control
-              className="mr-15"
-              type="text"
-              placeholder="Search products here..."
-            />
-          </Form>
-          
-          <Link className="text-white">
+          <Link className="nav-items text-white">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Shop by Category
@@ -62,26 +53,36 @@ const Header = () => {
               </Dropdown.Menu>
             </Dropdown>
           </Link>
-          <Link className="text-white" to="/checkout">
-            <FaCartPlus /> 
+          <Link className="nav-items text-white" to="/checkout">
+            <FaCartPlus />
           </Link>
+
+          <Form className="nav-items " inline>
+            {" "}
+            <Form.Control
+              className="mr-15"
+              type="text"
+              placeholder="Search products here..."
+            />
+          </Form>
+
           {isAuth ? (
             <Link
-              className="text-white"
+              className=" nav-items text-white"
               onClick={handleOnLogout}
-              style={{ cursor: "pointer" }}
+              
             >
               <FiLogOut />
               Logout
             </Link>
           ) : (
-            <Link className="text-white" to="/login">
+            <Link className=" nav-items text-white" to="/login">
               SignIn / SignUp
             </Link>
           )}
         </Nav>
       </Navbar>
-    </Card>
+    </>
   );
 };
 

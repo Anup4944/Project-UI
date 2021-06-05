@@ -16,32 +16,10 @@ const checkOutSlice = createSlice({
       state.cart.push(payload);
     },
     removeProductSuccess: (state, { payload }) => {
-      const filterCart = state.cart.filter((row) => row._id !== payload);
+      const filterCart = state.cart.filter((row) => row.currentViewList._id !== payload);
       state.cart = filterCart;
     },
-    addingProductSuccess: (state, { payload }) => {
-      const addItem = state.cart.map((row) => {
-        if (row._id === payload) {
-          row.qty++;
-          return row;
-        }
-        return row;
-      });
-      state.cart = addItem;
-      
-    },
-    subtractProductSuccess: (state, { payload }) => {
-      const subsItem = state.cart.map((row) => {
-        if (row._id === payload) {
-          row.qty--;
-          return row;
-          
-        }
-        return row;
-        
-      });
-      state.cart = subsItem;
-    },
+   
     requestFail: (state) => {
       state.isLoading = false;
     },
