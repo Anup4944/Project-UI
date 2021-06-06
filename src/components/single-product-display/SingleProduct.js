@@ -38,6 +38,7 @@ export const SingleProduct = () => {
           <br />
           Product Name : {currentViewList.name} <br />
           Product Price : {currentViewList.price} <br />
+          Product Sale Price : {currentViewList.salePrice} <br />
           Product Sale End Date : {currentViewList.saleEndDate} <br />
           Product Qty : {currentViewList.qty} <br />
           Product Description : {currentViewList.description} <br />
@@ -45,7 +46,7 @@ export const SingleProduct = () => {
           <br />
           <Image src={currentViewList.images} />
           <br />
-          <select name="qty" id="" ref={qtyRef} style={{ maxWidth: "100px"}}>
+          <select name="qty" id="" ref={qtyRef} style={{ maxWidth: "120px"}}>
             <option value="1">Select qty</option>
             {qtyList.map((item, i) => (
               <option value={i + 1}>{i + 1}</option>

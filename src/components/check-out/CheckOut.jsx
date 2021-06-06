@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Container, Table, Button } from "react-bootstrap";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { removeFromCart } from "../../pages/check-out-page/CheckOutAction";
-import "./CheckOut.css"
+import "./CheckOut.css";
 
 export const CheckOut = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,8 @@ export const CheckOut = () => {
         <tbody>
           {cart.length &&
             cart.map((item, i) => {
-              const finalPrice = item.currentViewList.salePrice * item.buyinggQty;
+              const finalPrice =
+                item.currentViewList.salePrice * item.buyinggQty;
               return (
                 <tr>
                   <td>{item.currentViewList.name}</td>
@@ -46,9 +47,13 @@ export const CheckOut = () => {
                 </tr>
               );
             })}
+             
         </tbody>
+       
       </Table>
+      <Button variant="success"> Proceed to check out</Button>
     </Container>
+    
   );
 };
 

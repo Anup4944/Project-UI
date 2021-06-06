@@ -13,6 +13,7 @@ import CheckOutPage from "./pages/check-out-page/CheckOutPage";
 import Category from "./pages/category/Category";
 import { PrivateRoute } from "./components/private-route/PrivateRoute";
 import { SingleProd } from "./pages/single-product-page/SingleProd";
+import TempCart from "./pages/tem-cart/TempCart";
 
 function App() {
   return (
@@ -50,6 +51,10 @@ function App() {
 
             <Route exact path="/checkout">
               <CheckOutPage />
+            </Route>
+
+            <Route exact path="/temp-checkout">
+              <TempCart />
             </Route>
 
             <PrivateRoute exact path="/checkout">
