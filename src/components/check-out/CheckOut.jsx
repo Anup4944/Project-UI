@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { Container, Table, Button } from "react-bootstrap";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { removeFromCart } from "../../pages/check-out-page/CheckOutAction";
+import { useHistory } from "react-router-dom";
 import "./CheckOut.css";
 
 export const CheckOut = () => {
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const { cart } = useSelector((state) => state.checkOut);
 
@@ -43,7 +45,7 @@ export const CheckOut = () => {
                       <RiDeleteBinLine />
                     </Button>
                   </td>
-                  <td>{finalPrice}</td>
+                  <td> $ {finalPrice}</td>
                 </tr>
               );
             })}
@@ -51,7 +53,7 @@ export const CheckOut = () => {
         </tbody>
        
       </Table>
-      <Button variant="success"> Proceed to check out</Button>
+      <Button variant="success" onClick={() =>{ history.push("/temp-checkout")}}> Proceed to check out</Button>
     </Container>
     
   );

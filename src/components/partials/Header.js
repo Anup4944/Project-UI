@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Navbar, Nav, Form, Card, Dropdown } from "react-bootstrap";
+import { Navbar, Nav, Form, Card, Dropdown,Image } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import { logOut } from "../../pages/login/LoginAction";
 import "./Header.css";
 import { useDispatch } from "react-redux";
 import { getCategories } from "../../pages/category/CategoryAction";
+
 
 const Header = () => {
   const history = useHistory();
@@ -30,7 +31,7 @@ const Header = () => {
     <>
       <Navbar className="navbar navbar-expand-lg bg-dark navbar-dark">
         <Navbar.Brand className="navbar-brand text-white nav-items ">
-          Logo
+        LOGO
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
@@ -60,12 +61,12 @@ const Header = () => {
           <FaCartPlus />
         </Link>
 
-        <Form className="form-inline">
+        <Form className="form-inline" style={{maxWidth: "400px"}}>
           {" "}
           <Form.Control
             className="mr-15"
             type="text"
-            placeholder="Search products here..."
+            placeholder="Search products..."
           />
         </Form>
 
