@@ -24,7 +24,7 @@ const ListCategory = () => {
         {" "}
         Here are the products that fall under this category.
       </h1>
-      {currentViewList?.map((item, i) => {
+      {currentViewList.map((item, i) => {
         return (
           <div>
             <ul className="list-group list-group-flush">

@@ -36,7 +36,7 @@ const Dashboard = () => {
                   <Link to={`/product/${item.slug}`}>
                     <a className="btn btn-info">View more</a>
                   </Link>
-                  <Image src={item.images[0]} style={{ maxWidth: 550 , maxHeight: 250 }} />
+                  <Image src={item.images[0]} style={{ maxHeight: 250 }} />
                   <br />{" "}
                 
                

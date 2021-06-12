@@ -42,9 +42,10 @@ export const SingleProduct = () => {
           Product Sale End Date : {currentViewList.saleEndDate} <br />
           Product Qty : {currentViewList.qty} <br />
           Product Description : {currentViewList.description} <br />
-          Product Category : {currentViewList.categories}
+          {/* Product Category : {currentViewList.categories} */}
+          
           <br />
-          <Image src={currentViewList.images} />
+          <Image src={currentViewList.images} style={{ maxWidth: 500 }} />
           <br />
           <select name="qty" id="" ref={qtyRef} style={{ maxWidth: "120px"}}>
             <option value="1">Select qty</option>

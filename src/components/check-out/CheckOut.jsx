@@ -53,7 +53,7 @@ export const CheckOut = () => {
         </tbody>
        
       </Table>
-      <Button variant="success" onClick={() =>{ history.push("/temp-checkout")}}> Proceed to check out</Button>
+      <Button variant="success" style={{maxWidth:300}} onClick={() =>{ history.push("/temp-checkout")}}> Proceed to check out</Button>
     </Container>
     
   );

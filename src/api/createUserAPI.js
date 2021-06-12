@@ -7,7 +7,7 @@ export const createNewUserApi = (frmDt) => {
   return new Promise(async(resolve, reject) => {
     try {
       const { data } = await axios.post(creatUserAPI, frmDt);
-      console.log(data)
+    
       resolve(data);
     } catch (error) {
       reject(error);

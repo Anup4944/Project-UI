@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Col, Button,Alert, Spinner, Container } from "react-bootstrap";
 import "./CreateUserForm.css";
 import { useHistory } from "react-router-dom";
-import { createNewUserApi } from "../../api/createUserAPI";
+
 import { useDispatch, useSelector } from "react-redux";
 import { newUser } from "../../pages/create-user/CreateUserAction";
 
