@@ -1,12 +1,9 @@
-.deal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+.deal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-   
+.container {
 }

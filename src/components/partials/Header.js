@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Navbar, Nav, Form, Card, Dropdown,Image } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
@@ -36,7 +37,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Link className="nav-link text-white" to="/">
-          Home
+          <FaHome/>
         </Link>
 
         <Link className="nav-link text-white">

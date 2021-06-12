@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import { Button, Form, Container } from "react-bootstrap";
 import axios from "axios";
 import DefaultLayout from "../../components/layout/DefaultLayout";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { newUserInfo } from "./TempCart.Action";
 
 const product = {
