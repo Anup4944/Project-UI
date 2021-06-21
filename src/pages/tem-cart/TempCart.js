@@ -51,7 +51,7 @@ export const TempCart = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(">>>>>>>>>", userInfo);
+   
     const { ...userObj } = userInfo;
     dispatch(newUserInfo(userObj));
   };

@@ -8,9 +8,14 @@ import "./CheckOut.css";
 
 export const CheckOut = () => {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
 
   const { cart } = useSelector((state) => state.checkOut);
+
+
+  const cartTotal = cart.reduce((iniVal, row) => {
+    return iniVal + (row.buyinggQty * row.currentViewList.salePrice);
+  }, 0);
 
   return (
     <Container>
@@ -49,13 +54,25 @@ export const CheckOut = () => {
                 </tr>
               );
             })}
-             
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Final Price : $ {cartTotal}</td>
+          </tr>
         </tbody>
-       
       </Table>
-      <Button variant="success" style={{maxWidth:300}} onClick={() =>{ history.push("/temp-checkout")}}> Proceed to check out</Button>
+      <Button
+        variant="success"
+        style={{ maxWidth: 300 }}
+        onClick={() => {
+          history.push("/temp-checkout");
+        }}
+      >
+        {" "}
+        Proceed to check out
+      </Button>
     </Container>
-    
   );
 };
 

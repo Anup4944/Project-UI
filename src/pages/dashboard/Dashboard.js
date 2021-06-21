@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DefaultLayout from "../../components/layout/DefaultLayout";
 import { getProducts } from "../../pages/product/ProductAction";
-import { Image, Button, Card, Row, Col, Container } from "react-bootstrap";
+import { Image, Row, Col, Container } from "react-bootstrap";
 import "./Dashboard.css";
 import { Link, useHistory } from "react-router-dom";
 
