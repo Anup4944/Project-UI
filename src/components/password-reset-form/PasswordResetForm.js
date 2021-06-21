@@ -28,9 +28,9 @@ export const PasswordResetForm = () => {
             <Form.Control
               name="email"
               type="email"
-              placeholder="Reset email"
+              placeholder="Enter your email"
               onChange={handleOnChange}
-              value={email}
+              value={email.email}
               required
             />
           </Form.Group>
