@@ -21,7 +21,7 @@ const Dashboard = () => {
       <DefaultLayout>
         <Container>
           <h1
-            className="jumbotron jumbotron-fluid d-flex justify-content-center"
+            className="jumbotron jumbotron-fluid d-flex justify-content-center strong"
             style={{ color: "green", fontSize: "3rem" }}
           >
             Todays deal
@@ -29,18 +29,14 @@ const Dashboard = () => {
           {productList?.map((item, i) => {
             return (
               <div className="container" style={{ maxWidth: 550 }}>
-                <Row>
-                  <Col>
-                    Product Name :{" "}
-                    <Link to={`/product/${item.slug}`}>{item.name}</Link>
-                    <br />
-                    <Link to={`/product/${item.slug}`}>
-                      <a className="btn btn-info">View more</a>
-                    </Link>
-                    <Image src={item.images[0]} style={{ maxHeight: 250 }} />
-                    <br />{" "}
-                  </Col>
-                </Row>
+                Product Name :{" "}
+                <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                <br />
+                <Link to={`/product/${item.slug}`}>
+                  <a className="btn btn-info">View more</a>
+                </Link>
+                <Image src={item.images[0]} style={{ maxHeight: 250 }} />
+                <br />{" "}
               </div>
             );
           })}
