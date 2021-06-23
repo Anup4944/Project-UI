@@ -12,9 +12,8 @@ export const CheckOut = () => {
 
   const { cart } = useSelector((state) => state.checkOut);
 
-
   const cartTotal = cart.reduce((iniVal, row) => {
-    return iniVal + (row.buyinggQty * row.currentViewList.salePrice);
+    return iniVal + row.buyinggQty * row.currentViewList.salePrice;
   }, 0);
 
   return (
@@ -54,6 +53,7 @@ export const CheckOut = () => {
                 </tr>
               );
             })}
+
           <tr>
             <td></td>
             <td></td>
